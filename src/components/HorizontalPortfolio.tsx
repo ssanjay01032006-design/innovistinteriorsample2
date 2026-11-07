@@ -58,14 +58,14 @@ export const HorizontalPortfolio: React.FC<HorizontalPortfolioProps> = ({ onSele
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#0B0B0B] text-[#F5F1EB] overflow-hidden min-h-screen flex flex-col justify-between py-12 md:py-16 select-none"
+      className="relative bg-[#0B0B0B] text-[#F5F1EB] overflow-hidden min-h-[600px] md:min-h-screen flex flex-col justify-between py-12 md:py-16 select-none"
     >
       {/* Top Header & Section Title */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-end justify-between mb-8 z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full flex items-end justify-between mb-6 md:mb-8 z-10">
         <div>
-          <div className="flex items-center space-x-3 mb-3">
-            <span className="w-8 h-[1.5px] bg-terracotta" />
-            <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-coral font-semibold">
+          <div className="flex items-center space-x-2.5 sm:space-x-3 mb-2.5 sm:mb-3">
+            <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
+            <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-coral font-semibold">
               Curated Panoramic Gallery
             </span>
           </div>
@@ -74,16 +74,17 @@ export const HorizontalPortfolio: React.FC<HorizontalPortfolioProps> = ({ onSele
           </h2>
         </div>
 
-        <div className="hidden sm:flex items-center space-x-3 text-xs uppercase tracking-widest text-[#F5F1EB]/60 font-sans">
-          <span>Curated Series</span>
+        <div className="flex items-center space-x-3 text-xs uppercase tracking-widest text-[#F5F1EB]/60 font-sans">
+          <span className="md:hidden text-coral text-[10px] font-mono tracking-wider animate-pulse">Swipe →</span>
+          <span className="hidden sm:inline">Curated Series</span>
         </div>
       </div>
 
       {/* Horizontal Scrolling Track */}
-      <div className="w-full overflow-hidden flex-1 flex items-center">
+      <div className="w-full overflow-x-auto md:overflow-hidden flex-1 flex items-center no-scrollbar touch-pan-x pb-4">
         <div
           ref={trackRef}
-          className="flex items-center space-x-8 md:space-x-12 px-6 md:px-12 will-change-transform"
+          className="flex items-center space-x-5 sm:space-x-8 md:space-x-12 px-4 sm:px-6 md:px-12 will-change-transform"
         >
           {PROJECTS.map((project, idx) => (
             <div

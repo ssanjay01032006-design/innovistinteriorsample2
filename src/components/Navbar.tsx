@@ -38,12 +38,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setMobileMenuOpen(false);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [mobileMenuOpen]);
 
   const navLinks = [
@@ -110,7 +115,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             <button
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open Navigation Menu"
-              className="lg:hidden p-2 text-obsidian hover:text-terracotta transition-colors"
+              aria-expanded={mobileMenuOpen}
+              className="lg:hidden p-2.5 text-obsidian hover:text-terracotta transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -122,36 +128,36 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       <div
         className={`fixed inset-0 z-50 bg-obsidian text-ivory-warm transform transition-transform duration-500 ease-in-out ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } lg:hidden flex flex-col justify-between p-8`}
+        } lg:hidden flex flex-col justify-between p-6 sm:p-8 overflow-y-auto`}
       >
-        <div className="flex items-center justify-between border-b border-ivory-warm/10 pb-6">
+        <div className="flex items-center justify-between border-b border-ivory-warm/10 pb-5 shrink-0">
           <div className="flex flex-col">
             <span className="font-serif text-2xl tracking-[0.2em] font-medium uppercase text-ivory-warm">
               INNOVIST
             </span>
-            <span className="text-[9px] uppercase tracking-[0.35em] text-terracotta">
+            <span className="text-[9px] uppercase tracking-[0.35em] text-terracotta font-semibold">
               Interior Architecture
             </span>
           </div>
           <button
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close Navigation Menu"
-            className="p-2 text-ivory-warm/80 hover:text-coral transition-colors"
+            className="p-2.5 text-ivory-warm/80 hover:text-coral transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
 
-        <nav className="flex flex-col space-y-6 my-auto py-6">
+        <nav className="flex flex-col space-y-4 sm:space-y-6 my-auto py-8">
           {navLinks.map((link, idx) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="group flex items-baseline justify-between font-serif text-2xl sm:text-3xl tracking-wide hover:text-coral transition-colors"
+              className="group flex items-center justify-between font-serif text-2xl sm:text-3xl tracking-wide hover:text-coral transition-colors py-2 min-h-[48px]"
             >
               <span className="flex items-center space-x-3">
-                <span className="text-xs font-sans tracking-widest text-terracotta">
+                <span className="text-xs font-sans tracking-widest text-terracotta font-semibold">
                   0{idx + 1}
                 </span>
                 <span>{link.label}</span>
@@ -161,23 +167,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           ))}
         </nav>
 
-        <div className="border-t border-ivory-warm/10 pt-6 space-y-4">
+        <div className="border-t border-ivory-warm/10 pt-5 space-y-4 shrink-0">
           <button
             onClick={() => {
               setMobileMenuOpen(false);
               onOpenConsultation();
             }}
-            className="w-full py-3.5 bg-terracotta text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center justify-center space-x-2 hover:bg-coral transition-colors shadow-lg"
+            className="w-full py-4 bg-terracotta text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center justify-center space-x-2 hover:bg-coral transition-colors shadow-lg min-h-[48px]"
           >
             <span>Start Your Project</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
-          <div className="flex items-center justify-between text-xs text-grey-warm font-sans tracking-wider pt-2">
-            <a href="tel:+919876543210" className="flex items-center space-x-1 hover:text-ivory-warm">
-              <Phone className="w-3.5 h-3.5 mr-1 text-terracotta" />
+          <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-grey-warm font-sans tracking-wider pt-2 gap-2 text-center sm:text-left">
+            <a href="tel:+919876543210" className="flex items-center space-x-1.5 hover:text-ivory-warm py-1">
+              <Phone className="w-3.5 h-3.5 text-terracotta" />
               <span>+91 98765 43210</span>
             </a>
-            <span className="text-terracotta">Bengaluru • Mumbai</span>
+            <span className="text-terracotta font-mono text-[11px]">Bengaluru • Mumbai</span>
           </div>
         </div>
       </div>

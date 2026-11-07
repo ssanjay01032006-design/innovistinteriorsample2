@@ -8,64 +8,64 @@ export const MaterialShowcase: React.FC = () => {
   const [viewMode, setViewMode] = useState<'macro' | 'room'>('macro');
 
   return (
-    <section id="materials" className="py-28 md:py-36 bg-[#0B0B0B] text-[#F5F1EB] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="materials" className="py-20 sm:py-28 md:py-36 bg-[#0B0B0B] text-[#F5F1EB] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8 mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 sm:pb-8 mb-10 sm:mb-16 gap-5 sm:gap-6">
           <div className="max-w-2xl">
-            <div className="flex items-center space-x-3 mb-4">
-              <span className="w-8 h-[1.5px] bg-terracotta" />
-              <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-coral font-semibold">
+            <div className="flex items-center space-x-2.5 sm:space-x-3 mb-3 sm:mb-4">
+              <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
+              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-coral font-semibold">
                 Craftsmanship & Materiality
               </span>
             </div>
             <SplitReveal
               as="h2"
-              className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-[#F5F1EB] tracking-tight"
+              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-[#F5F1EB] tracking-tight"
             >
               {"Every Detail Has\na Purpose."}
             </SplitReveal>
-            <p className="font-sans text-sm sm:text-base text-[#F5F1EB]/75 mt-4 font-light leading-relaxed">
+            <p className="font-sans text-xs sm:text-sm md:text-base text-[#F5F1EB]/75 mt-3 sm:mt-4 font-light leading-relaxed">
               We source raw, authentic elements from historic quarries and sustainable mills. Explore the tactile dialogue between raw materials and architectural living.
             </p>
           </div>
 
           {/* Macro Detail vs Room Application Toggle */}
-          <div className="flex items-center bg-white/5 p-1 border border-white/15 text-xs uppercase tracking-widest">
+          <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center bg-white/5 p-1 border border-white/15 text-xs uppercase tracking-wider sm:tracking-widest">
             <button
               onClick={() => setViewMode('macro')}
-              className={`flex items-center space-x-2 px-5 py-2.5 transition-all ${
+              className={`flex items-center justify-center space-x-1.5 sm:space-x-2 px-3 sm:px-5 py-2.5 transition-all min-h-[44px] ${
                 viewMode === 'macro'
                   ? 'bg-terracotta text-white font-semibold shadow-md'
                   : 'text-[#F5F1EB]/70 hover:text-[#F5F1EB]'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Macro Texture</span>
+              <Sparkles className="w-3.5 h-3.5 shrink-0" />
+              <span className="text-[11px] sm:text-xs">Macro Texture</span>
             </button>
             <button
               onClick={() => setViewMode('room')}
-              className={`flex items-center space-x-2 px-5 py-2.5 transition-all ${
+              className={`flex items-center justify-center space-x-1.5 sm:space-x-2 px-3 sm:px-5 py-2.5 transition-all min-h-[44px] ${
                 viewMode === 'room'
                   ? 'bg-terracotta text-white font-semibold shadow-md'
                   : 'text-[#F5F1EB]/70 hover:text-[#F5F1EB]'
               }`}
             >
-              <Eye className="w-3.5 h-3.5" />
-              <span>In-Room Application</span>
+              <Eye className="w-3.5 h-3.5 shrink-0" />
+              <span className="text-[11px] sm:text-xs">Room Context</span>
             </button>
           </div>
         </div>
 
         {/* Material Selection Pills */}
-        <div className="flex items-center space-x-3 overflow-x-auto no-scrollbar pb-6 mb-12 text-xs uppercase tracking-[0.18em]">
+        <div className="flex items-center space-x-2.5 sm:space-x-3 overflow-x-auto no-scrollbar touch-pan-x pb-4 mb-8 sm:mb-12 text-xs uppercase tracking-[0.16em] sm:tracking-[0.18em]">
           {MATERIALS.map((mat) => {
             const isCurrent = selectedMaterial.id === mat.id;
             return (
               <button
                 key={mat.id}
                 onClick={() => setSelectedMaterial(mat)}
-                className={`px-5 py-2.5 whitespace-nowrap transition-all duration-300 border ${
+                className={`px-4 sm:px-5 py-2.5 whitespace-nowrap transition-all duration-300 border min-h-[44px] flex items-center shrink-0 ${
                   isCurrent
                     ? 'border-terracotta bg-terracotta/20 text-[#F5F1EB] font-semibold'
                     : 'border-white/15 bg-white/5 text-[#F5F1EB]/60 hover:border-terracotta/40 hover:text-[#F5F1EB]'

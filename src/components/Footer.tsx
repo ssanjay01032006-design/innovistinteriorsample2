@@ -8,14 +8,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0B0B0B] text-[#F5F1EB] pt-28 pb-12 border-t border-white/10 relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <footer className="bg-[#0B0B0B] text-[#F5F1EB] pt-20 sm:pt-28 pb-10 sm:pb-12 border-t border-white/10 relative overflow-hidden select-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Large Architectural Statement */}
-        <div className="border-b border-white/10 pb-16 mb-16">
-          <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-coral font-semibold block mb-4">
+        <div className="border-b border-white/10 pb-12 sm:pb-16 mb-12 sm:mb-16">
+          <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-coral font-semibold block mb-3 sm:mb-4">
             The Studio Creed
           </span>
-          <p className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#F5F1EB] tracking-tight leading-[1.1]">
+          <p className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-light text-[#F5F1EB] tracking-tight leading-[1.12] sm:leading-[1.1]">
             "Thoughtfully designed. <br />
             <span className="italic text-terracotta font-light">Beautifully lived."</span>
           </p>
