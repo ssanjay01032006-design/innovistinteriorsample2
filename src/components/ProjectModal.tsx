@@ -60,17 +60,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       className="fixed inset-0 z-50 overflow-y-auto bg-[#0B0B0B]/95 backdrop-blur-xl text-[#F5F1EB] flex flex-col justify-between animate-[fadeIn_0.3s_ease-out]"
     >
       {/* Sticky Header with Close & Breadcrumbs */}
-      <header className="sticky top-0 z-30 bg-[#0B0B0B]/90 backdrop-blur-md border-b border-white/10 px-4 sm:px-6 md:px-12 py-3.5 sm:py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2.5 sm:space-x-3 text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#F5F1EB]/70">
+      <header className="sticky top-0 z-30 bg-[#0B0B0B]/90 backdrop-blur-md border-b border-white/10 px-6 md:px-12 py-4 flex items-center justify-between">
+        <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-[#F5F1EB]/70">
           <span className="text-terracotta font-semibold">Selected Work</span>
           <span>/</span>
-          <span className="text-[#F5F1EB] truncate max-w-[150px] sm:max-w-none">{project.title}</span>
+          <span className="text-[#F5F1EB] truncate max-w-[200px] sm:max-w-none">{project.title}</span>
         </div>
 
         <button
           onClick={onClose}
           aria-label="Close Project Modal"
-          className="p-2 border border-white/20 text-[#F5F1EB] hover:bg-terracotta hover:text-white hover:border-terracotta transition-colors flex items-center space-x-1.5 sm:space-x-2 text-xs uppercase tracking-widest min-h-[44px]"
+          className="p-2 border border-white/20 text-[#F5F1EB] hover:bg-terracotta hover:text-white hover:border-terracotta transition-colors flex items-center space-x-2 text-xs uppercase tracking-widest"
         >
           <span>Close</span>
           <X className="w-4 h-4" />
@@ -78,31 +78,31 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       </header>
 
       {/* Main Modal Body */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-6 sm:py-10 w-full space-y-8 sm:space-y-12">
+      <main className="max-w-6xl mx-auto px-6 md:px-12 py-10 w-full space-y-12">
         {/* Project Title & Metadata Bar */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 sm:pb-8 gap-5 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8 gap-6">
           <div>
-            <span className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.24em] sm:tracking-[0.28em] text-coral font-semibold block mb-1.5 sm:mb-2">
+            <span className="text-xs font-sans uppercase tracking-[0.28em] text-coral font-semibold block mb-2">
               {project.category}
             </span>
-            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#F5F1EB]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal text-[#F5F1EB]">
               {project.title}
             </h2>
-            <p className="font-sans text-xs sm:text-sm md:text-base text-[#F5F1EB]/70 font-light mt-2 max-w-2xl">
+            <p className="font-sans text-sm md:text-base text-[#F5F1EB]/70 font-light mt-2 max-w-2xl">
               {project.subtitle}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-[11px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#F5F1EB]/80 font-sans">
-            <div className="flex items-center space-x-1.5 sm:space-x-2">
+          <div className="flex flex-wrap items-center gap-6 text-xs uppercase tracking-[0.2em] text-[#F5F1EB]/80 font-sans">
+            <div className="flex items-center space-x-2">
               <MapPin className="w-3.5 h-3.5 text-coral" />
               <span>{project.location}</span>
             </div>
-            <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <div className="flex items-center space-x-2">
               <Calendar className="w-3.5 h-3.5 text-coral" />
               <span>{project.year}</span>
             </div>
-            <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <div className="flex items-center space-x-2">
               <Maximize2 className="w-3.5 h-3.5 text-coral" />
               <span>{project.area}</span>
             </div>
@@ -110,37 +110,37 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         </div>
 
         {/* Presentation Mode Selector */}
-        <div className="flex items-center space-x-4 sm:space-x-6 border-b border-white/10 pb-3 sm:pb-4 text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] overflow-x-auto no-scrollbar touch-pan-x whitespace-nowrap">
+        <div className="flex items-center space-x-4 border-b border-white/10 pb-4 text-xs uppercase tracking-[0.2em]">
           <button
             onClick={() => setActiveTab('gallery')}
-            className={`pb-2 transition-colors relative shrink-0 min-h-[44px] flex items-center ${
+            className={`pb-2 transition-colors relative ${
               activeTab === 'gallery' ? 'text-coral font-semibold' : 'text-[#F5F1EB]/60 hover:text-[#F5F1EB]'
             }`}
           >
-            <span>Interior Gallery ({project.gallery.length})</span>
+            Interior Gallery ({project.gallery.length})
             {activeTab === 'gallery' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-terracotta" />}
           </button>
 
           {project.beforeImage && (
             <button
               onClick={() => setActiveTab('comparison')}
-              className={`pb-2 transition-colors relative flex items-center space-x-1.5 shrink-0 min-h-[44px] ${
+              className={`pb-2 transition-colors relative flex items-center space-x-1.5 ${
                 activeTab === 'comparison' ? 'text-coral font-semibold' : 'text-[#F5F1EB]/60 hover:text-[#F5F1EB]'
               }`}
             >
               <Sparkles className="w-3 h-3 text-coral" />
-              <span>Before & After</span>
+              <span>Before & After Reveal</span>
               {activeTab === 'comparison' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-terracotta" />}
             </button>
           )}
 
           <button
             onClick={() => setActiveTab('concept')}
-            className={`pb-2 transition-colors relative shrink-0 min-h-[44px] flex items-center ${
+            className={`pb-2 transition-colors relative ${
               activeTab === 'concept' ? 'text-coral font-semibold' : 'text-[#F5F1EB]/60 hover:text-[#F5F1EB]'
             }`}
           >
-            <span>Architectural Concept</span>
+            Design Narrative
             {activeTab === 'concept' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-terracotta" />}
           </button>
         </div>
@@ -181,10 +181,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         {activeTab === 'comparison' && project.beforeImage && (
           <div className="space-y-4">
             <div
-              className="relative w-full aspect-[16/9] overflow-hidden select-none cursor-ew-resize border border-white/20 shadow-2xl touch-none"
+              className="relative w-full aspect-[16/9] overflow-hidden select-none cursor-ew-resize border border-white/20 shadow-2xl"
               onMouseMove={handleSliderMove}
               onTouchMove={handleSliderMove}
-              onTouchStart={handleSliderMove}
             >
               {/* After Image (Full background) */}
               <img

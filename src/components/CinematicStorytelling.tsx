@@ -8,13 +8,13 @@ export const CinematicStorytelling: React.FC = () => {
   const currentStage: StoryStage = STORY_STAGES[activeStepIndex];
 
   return (
-    <section id="story" className="py-20 sm:py-28 md:py-36 bg-[#F5F1EB] text-obsidian border-t border-obsidian/10 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+    <section id="story" className="py-28 md:py-36 bg-[#F5F1EB] text-obsidian border-t border-obsidian/10 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-10 sm:mb-16">
-          <div className="flex items-center space-x-2.5 sm:space-x-3 mb-3 sm:mb-4">
-            <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
-            <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-terracotta font-semibold">
+        <div className="max-w-3xl mb-16">
+          <div className="flex items-center space-x-3 mb-4">
+            <span className="w-8 h-[1.5px] bg-terracotta" />
+            <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-terracotta font-semibold">
               Project Case Story • The Aethel Residence
             </span>
           </div>
@@ -24,29 +24,29 @@ export const CinematicStorytelling: React.FC = () => {
           >
             {"From Vision to\nLiving Space."}
           </SplitReveal>
-          <p className="font-sans text-xs sm:text-sm md:text-base text-obsidian/75 mt-3 sm:mt-4 font-light leading-relaxed">
+          <p className="font-sans text-sm md:text-base text-obsidian/75 mt-4 font-light leading-relaxed">
             Follow the metamorphosis of a raw penthouse shell into an enduring architectural sanctuary. Step through each evolutionary phase below.
           </p>
         </div>
 
         {/* 5-Step Stage Stepper Bar */}
-        <div className="flex sm:grid sm:grid-cols-5 gap-2 sm:gap-3 overflow-x-auto no-scrollbar touch-pan-x border-b border-obsidian/15 pb-4 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 border-b border-obsidian/15 pb-6 mb-12">
           {STORY_STAGES.map((stg, idx) => {
             const isActive = activeStepIndex === idx;
             return (
               <button
                 key={stg.step}
                 onClick={() => setActiveStepIndex(idx)}
-                className={`text-left p-3 sm:p-3.5 border-b-2 transition-all duration-300 shrink-0 min-w-[130px] sm:min-w-0 ${
+                className={`text-left p-3.5 border-b-2 transition-all duration-300 ${
                   isActive
                     ? 'border-terracotta bg-terracotta/10 shadow-sm'
                     : 'border-transparent hover:border-obsidian/20 opacity-60 hover:opacity-100'
                 }`}
               >
-                <span className="font-mono text-[10px] sm:text-xs tracking-widest text-terracotta font-semibold block">
+                <span className="font-mono text-xs tracking-widest text-terracotta font-semibold block">
                   Stage {stg.step}
                 </span>
-                <span className="font-serif text-sm sm:text-base md:text-lg text-obsidian font-medium block truncate">
+                <span className="font-serif text-base sm:text-lg text-obsidian font-medium block truncate">
                   {stg.title.split('&')[0]}
                 </span>
               </button>

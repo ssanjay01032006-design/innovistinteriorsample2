@@ -83,7 +83,7 @@ export const HeroAboutZone: React.FC<HeroAboutZoneProps> = ({ onOpenConsultation
       */}
       <div
         aria-hidden="true"
-        className="sticky top-0 left-0 w-full h-[100dvh] pointer-events-none z-0 flex items-center justify-start overflow-hidden select-none"
+        className="sticky top-0 left-0 w-full h-screen pointer-events-none z-0 flex items-center justify-start overflow-hidden select-none"
       >
         {/* Layer 1: GSAP ScrollTrigger Differential Parallax */}
         <div
@@ -95,7 +95,7 @@ export const HeroAboutZone: React.FC<HeroAboutZoneProps> = ({ onOpenConsultation
             style={{
               transform: `translate3d(${-mouseOffset.x * 0.6}px, ${-mouseOffset.y * 0.6}px, 0)`,
             }}
-            className="w-[145vw] sm:w-[130vw] lg:w-[125vw] max-w-[1900px] min-w-[950px] sm:min-w-[1150px] -ml-[180px] sm:-ml-[12vw] lg:-ml-[9vw] transition-transform duration-700 ease-out will-change-transform"
+            className="w-[125vw] max-w-[1900px] min-w-[1150px] -ml-[14vw] sm:-ml-[11vw] lg:-ml-[9vw] transition-transform duration-700 ease-out will-change-transform"
           >
             <img
               src={branchImg}
@@ -107,7 +107,7 @@ export const HeroAboutZone: React.FC<HeroAboutZoneProps> = ({ onOpenConsultation
       </div>
 
       {/* Scrolling Content: Hero and About scroll smoothly over the parallax branch */}
-      <div className="relative z-10 -mt-[100dvh]">
+      <div className="relative z-10 -mt-[100vh]">
         <Hero onOpenConsultation={onOpenConsultation} mouseOffset={mouseOffset} />
         <AboutStatement onOpenConsultation={onOpenConsultation} />
       </div>

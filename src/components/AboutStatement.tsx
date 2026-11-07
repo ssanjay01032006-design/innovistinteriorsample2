@@ -75,64 +75,64 @@ export const AboutStatement: React.FC<AboutStatementProps> = ({ onOpenConsultati
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-20 sm:py-28 md:py-40 bg-transparent text-obsidian select-none z-10"
+      className="relative py-28 md:py-40 bg-transparent text-obsidian select-none z-10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Top Editorial Label */}
-        <div className="flex items-center space-x-2.5 sm:space-x-3 mb-8 sm:mb-10">
-          <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
-          <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-terracotta font-semibold">
+        <div className="flex items-center space-x-3 mb-10">
+          <span className="w-8 h-[1.5px] bg-terracotta" />
+          <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-terracotta font-semibold">
             About INNOVIST Studio
           </span>
         </div>
 
         {/* Asymmetrical Grid: Left Editorial Narrative, Right Layered Architectural Visuals */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Heading & Narrative */}
-          <div className="lg:col-span-6 flex flex-col justify-between space-y-6 sm:space-y-8">
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-8">
             {/* Split Reveal Heading in Thick Black */}
             <SplitReveal
               as="h2"
-              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] sm:leading-[1.08] font-normal tracking-tight text-black"
+              className="font-serif text-4xl sm:text-6xl md:text-7xl leading-[1.08] font-normal tracking-tight text-black"
             >
               {"Designing Spaces.\nCreating Experiences."}
             </SplitReveal>
 
-            <div className="space-y-4 sm:space-y-6 font-sans text-sm sm:text-base md:text-lg leading-relaxed">
-              <p className="border-l-2 border-terracotta pl-4 sm:pl-5 text-black font-semibold text-sm sm:text-base md:text-lg leading-relaxed">
+            <div className="space-y-6 font-sans text-base md:text-lg leading-relaxed">
+              <p className="border-l-2 border-terracotta pl-5 text-black font-semibold text-base md:text-lg leading-relaxed">
                 At INNOVIST, we believe great interiors go beyond visual appeal. Every space should reflect individuality, create comfort and bring functionality into everyday living.
               </p>
-              <p className="text-xs sm:text-sm md:text-base text-black/90 font-medium leading-relaxed">
+              <p className="text-sm md:text-base text-black/90 font-medium leading-relaxed">
                 Founded with a conviction that true luxury lives in restraint, materiality, and proportion, our studio approaches every project as an unrepeatable architectural narrative. We sculpt volumes, frame natural light, and curate tactile finishes that evolve gracefully alongside the people who inhabit them.
               </p>
             </div>
 
             {/* Architectural Studio Pillars in Thick Black */}
-            <div className="grid grid-cols-3 gap-2.5 sm:gap-6 pt-5 sm:pt-6 border-t border-black/15">
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-black/15">
               <div>
-                <span className="block font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-black">01</span>
-                <span className="block text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.2em] text-black font-bold mt-1 font-sans">
+                <span className="block font-serif text-3xl md:text-4xl font-normal text-black">01</span>
+                <span className="block text-xs uppercase tracking-[0.2em] text-black font-bold mt-1 font-sans">
                   Spatial Purity
                 </span>
               </div>
               <div>
-                <span className="block font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-black">02</span>
-                <span className="block text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.2em] text-black font-bold mt-1 font-sans">
+                <span className="block font-serif text-3xl md:text-4xl font-normal text-black">02</span>
+                <span className="block text-xs uppercase tracking-[0.2em] text-black font-bold mt-1 font-sans">
                   Material Truth
                 </span>
               </div>
               <div>
-                <span className="block font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-black">03</span>
-                <span className="block text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.2em] text-black font-bold mt-1 font-sans">
+                <span className="block font-serif text-3xl md:text-4xl font-normal text-black">03</span>
+                <span className="block text-xs uppercase tracking-[0.2em] text-black font-bold mt-1 font-sans">
                   Turnkey Care
                 </span>
               </div>
             </div>
 
-            <div className="pt-2 sm:pt-3">
+            <div className="pt-3">
               <button
                 onClick={onOpenConsultation}
-                className="inline-flex items-center space-x-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.22em] font-bold text-black hover:text-terracotta transition-colors group min-h-[44px]"
+                className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.22em] font-bold text-black hover:text-terracotta transition-colors group"
               >
                 <span>Read Studio Manifesto & Inquire</span>
                 <ArrowUpRight className="w-4 h-4 text-terracotta transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

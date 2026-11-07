@@ -6,13 +6,13 @@ export const DesignPhilosophy: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="philosophy" className="py-20 sm:py-28 md:py-36 bg-ivory-warm text-obsidian border-t border-obsidian/10 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+    <section id="philosophy" className="py-28 md:py-36 bg-ivory-warm text-obsidian border-t border-obsidian/10 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 sm:mb-16">
-          <div className="flex items-center space-x-2.5 sm:space-x-3 mb-3 sm:mb-4">
-            <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
-            <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-terracotta font-semibold">
+        <div className="max-w-3xl mb-16">
+          <div className="flex items-center space-x-3 mb-4">
+            <span className="w-8 h-[1.5px] bg-terracotta" />
+            <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-terracotta font-semibold">
               Design Philosophy
             </span>
           </div>
@@ -22,7 +22,7 @@ export const DesignPhilosophy: React.FC = () => {
           >
             {"Where Thoughtful Design\nMeets Everyday Living."}
           </SplitReveal>
-          <p className="font-sans text-xs sm:text-sm md:text-base text-grey-muted mt-3 sm:mt-4 font-light leading-relaxed max-w-xl">
+          <p className="font-sans text-sm md:text-base text-grey-muted mt-4 font-light leading-relaxed max-w-xl">
             We reject ephemeral decoration in pursuit of lasting spatial resonance. Our ethos is anchored in three inviolable architectural commitments.
           </p>
         </div>

@@ -39,25 +39,25 @@ export const DesignProcess: React.FC = () => {
     <section
       ref={sectionRef}
       id="process"
-      className="py-20 sm:py-28 md:py-36 bg-[#F5F1EB] text-obsidian border-t border-obsidian/10 relative"
+      className="py-28 md:py-36 bg-[#F5F1EB] text-obsidian border-t border-obsidian/10 relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-obsidian/10 pb-6 sm:pb-8 mb-10 sm:mb-16 gap-4 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-obsidian/10 pb-8 mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="flex items-center space-x-2.5 sm:space-x-3 mb-3 sm:mb-4">
-              <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
-              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-terracotta font-semibold">
+            <div className="flex items-center space-x-3 mb-4">
+              <span className="w-8 h-[1.5px] bg-terracotta" />
+              <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-terracotta font-semibold">
                 Methodology & Execution
               </span>
             </div>
             <SplitReveal
               as="h2"
-              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-obsidian tracking-tight"
+              className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-obsidian tracking-tight"
             >
               {"From First Conversation\nto Final Reveal."}
             </SplitReveal>
-            <p className="font-sans text-xs sm:text-sm md:text-base text-obsidian/75 mt-3 sm:mt-4 font-light leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-obsidian/75 mt-4 font-light leading-relaxed">
               A transparent, milestone-driven pathway engineered to eliminate uncertainty and deliver perfection.
             </p>
           </div>

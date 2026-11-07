@@ -13,24 +13,24 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenConsulta
   const [expandedMobileId, setExpandedMobileId] = useState<string | null>(SERVICES[0].id);
 
   return (
-    <section id="services" className="py-20 sm:py-28 md:py-36 bg-ivory-warm text-obsidian border-t border-obsidian/10 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+    <section id="services" className="py-28 md:py-36 bg-ivory-warm text-obsidian border-t border-obsidian/10 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-obsidian/10 pb-6 sm:pb-8 mb-10 sm:mb-16 gap-4 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-obsidian/10 pb-8 mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="flex items-center space-x-2.5 sm:space-x-3 mb-3 sm:mb-4">
-              <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
-              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-terracotta font-semibold">
+            <div className="flex items-center space-x-3 mb-4">
+              <span className="w-8 h-[1.5px] bg-terracotta" />
+              <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-terracotta font-semibold">
                 Studio Disciplines
               </span>
             </div>
             <SplitReveal
               as="h2"
-              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-obsidian tracking-tight"
+              className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-obsidian tracking-tight"
             >
               Our Expertise
             </SplitReveal>
-            <p className="font-sans text-xs sm:text-sm md:text-base text-grey-muted mt-3 sm:mt-4 font-light leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-grey-muted mt-4 font-light leading-relaxed">
               Complete interior solutions, carefully considered from the first idea to the final detail.
             </p>
           </div>
@@ -43,7 +43,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenConsulta
         </div>
 
         {/* Master Services Layout: Desktop Hover Dynamic Image Mask + Mobile Accordion */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: 6 Services List */}
           <div className="lg:col-span-7 flex flex-col divide-y divide-obsidian/15">
             {SERVICES.map((srv) => {
@@ -61,39 +61,39 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenConsulta
                       setSelectedServiceForModal(srv);
                     }
                   }}
-                  className={`py-5 sm:py-7 md:py-8 cursor-pointer transition-all duration-300 group ${
-                    isSelected ? 'opacity-100 lg:pl-3' : 'opacity-75 hover:opacity-100'
+                  className={`py-7 md:py-8 cursor-pointer transition-all duration-300 group ${
+                    isSelected ? 'opacity-100 lg:pl-3' : 'opacity-70 hover:opacity-100'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-baseline space-x-3 sm:space-x-4 md:space-x-6">
+                    <div className="flex items-baseline space-x-4 md:space-x-6">
                       <span className="font-mono text-xs md:text-sm tracking-widest text-terracotta font-semibold">
                         {srv.number}
                       </span>
                       <div>
-                        <h3 className={`font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl transition-colors font-normal ${
+                        <h3 className={`font-serif text-2xl sm:text-3xl md:text-4xl transition-colors font-normal ${
                           isSelected ? 'text-obsidian font-medium' : 'text-obsidian/85 group-hover:text-terracotta'
                         }`}>
                           {srv.title}
                         </h3>
-                        <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-grey-muted mt-1 font-sans">
+                        <span className="block text-[11px] uppercase tracking-[0.2em] text-grey-muted mt-1 font-sans">
                           {srv.category}
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-2 border border-obsidian/20 group-hover:border-terracotta group-hover:bg-terracotta group-hover:text-white transition-all shrink-0 ml-2">
+                    <div className="p-2 border border-obsidian/20 group-hover:border-terracotta group-hover:bg-terracotta group-hover:text-white transition-all">
                       <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>
 
-                  <p className="font-sans text-xs sm:text-sm text-obsidian/75 font-light mt-2.5 sm:mt-3 pl-6 sm:pl-10 md:pl-12 max-w-xl">
+                  <p className="font-sans text-xs sm:text-sm text-obsidian/75 font-light mt-3 pl-8 md:pl-12 max-w-xl">
                     {srv.shortDesc}
                   </p>
 
                   {/* Inline Mobile Image & Action Reveal */}
                   {isMobileExpanded && (
-                    <div className="lg:hidden mt-5 pl-4 sm:pl-10 space-y-3.5 animate-[fadeIn_0.4s_ease-out]">
+                    <div className="lg:hidden mt-6 pl-8 space-y-4 animate-[fadeIn_0.4s_ease-out]">
                       <div className="relative aspect-[16/10] overflow-hidden shadow-md">
                         <img
                           src={srv.image}
@@ -109,7 +109,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenConsulta
                           e.stopPropagation();
                           setSelectedServiceForModal(srv);
                         }}
-                        className="inline-flex items-center space-x-1.5 text-xs uppercase tracking-widest text-terracotta font-medium hover:text-coral min-h-[44px] py-1"
+                        className="inline-flex items-center space-x-1.5 text-xs uppercase tracking-widest text-terracotta font-medium hover:text-coral"
                       >
                         <span>View Scope & Deliverables</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />

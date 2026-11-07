@@ -57,44 +57,44 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
   }, [activeCategory]);
 
   return (
-    <section id="projects" className="py-20 sm:py-28 md:py-36 bg-ivory-warm text-obsidian relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+    <section id="projects" className="py-28 md:py-36 bg-ivory-warm text-obsidian relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header & Editorial Introduction */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-obsidian/10 pb-6 sm:pb-8 mb-8 sm:mb-12 gap-4 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-obsidian/10 pb-8 mb-12 gap-6">
           <div className="max-w-2xl">
-            <div className="flex items-center space-x-2.5 sm:space-x-3 mb-3 sm:mb-4">
-              <span className="w-6 sm:w-8 h-[1.5px] bg-terracotta" />
-              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.24em] sm:tracking-[0.3em] text-terracotta font-semibold">
+            <div className="flex items-center space-x-3 mb-4">
+              <span className="w-8 h-[1.5px] bg-terracotta" />
+              <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-terracotta font-semibold">
                 Portfolio Showcase
               </span>
             </div>
             <SplitReveal
               as="h2"
-              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-obsidian tracking-tight"
+              className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-obsidian tracking-tight"
             >
               Selected Works
             </SplitReveal>
-            <p className="font-sans text-xs sm:text-sm md:text-base text-grey-muted mt-3 sm:mt-4 font-light leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-grey-muted mt-4 font-light leading-relaxed">
               A collection of spaces thoughtfully shaped around people, materials and everyday experiences.
             </p>
           </div>
 
           <div className="text-right hidden md:block">
-            <span className="text-xs uppercase tracking-[0.25em] text-terracotta font-mono font-semibold">
+            <span className="text-xs uppercase tracking-[0.25em] text-terracotta font-mono">
               06 Commissions Curated
             </span>
           </div>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar touch-pan-x pb-3 mb-10 text-xs uppercase tracking-[0.16em] sm:tracking-[0.18em]">
+        <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-4 mb-14 text-xs uppercase tracking-[0.18em]">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 sm:px-5 py-2.5 whitespace-nowrap transition-all duration-300 border min-h-[44px] flex items-center shrink-0 ${
+              className={`px-5 py-2.5 whitespace-nowrap transition-all duration-300 border ${
                 activeCategory === cat
-                  ? 'bg-obsidian border-terracotta text-ivory-warm shadow-md font-semibold'
+                  ? 'bg-obsidian border-terracotta text-ivory-warm shadow-md'
                   : 'bg-ivory-sand/40 border-transparent text-obsidian/70 hover:border-terracotta/40 hover:text-terracotta'
               }`}
             >
@@ -106,7 +106,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
         {/* Asymmetrical Editorial Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-start"
+          className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-start"
         >
           {filteredProjects.map((project, index) => {
             const isWide = index % 3 === 0;
@@ -117,7 +117,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
               <div
                 key={project.id}
                 onClick={() => onSelectProject(project)}
-                className={`project-card ${colSpan} group cursor-pointer flex flex-col space-y-3 sm:space-y-4`}
+                className={`project-card ${colSpan} group cursor-pointer flex flex-col space-y-4`}
               >
                 {/* Image Container with Smooth Scale & Mask Overlay */}
                 <div className={`relative ${aspect} overflow-hidden bg-ivory-stone shadow-lg`}>
@@ -128,19 +128,19 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
                     loading="lazy"
                   />
                   {/* Subtle Gradient Shadow */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-30 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Top Category Badge */}
-                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10">
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-sans bg-obsidian/90 text-ivory-warm px-2.5 sm:px-3 py-1 backdrop-blur-sm border border-terracotta/40">
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="text-[10px] uppercase tracking-[0.22em] font-sans bg-obsidian/90 text-ivory-warm px-3 py-1 backdrop-blur-sm border border-terracotta/40">
                       {project.category}
                     </span>
                   </div>
 
-                  {/* Floating Action Indicator */}
-                  <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-10 opacity-90 sm:opacity-0 group-hover:opacity-100 transform translate-y-0 sm:translate-y-3 group-hover:translate-y-0 transition-all duration-300">
-                    <div className="w-9 h-9 sm:w-11 sm:h-11 bg-terracotta text-ivory-warm flex items-center justify-center shadow-2xl hover:bg-coral transition-colors">
-                      <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-ivory-warm" />
+                  {/* Hover Floating Action Indicator */}
+                  <div className="absolute bottom-4 right-4 z-10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
+                    <div className="w-11 h-11 bg-terracotta text-ivory-warm flex items-center justify-center shadow-2xl hover:bg-coral transition-colors">
+                      <ArrowUpRight className="w-5 h-5 text-ivory-warm" />
                     </div>
                   </div>
                 </div>
