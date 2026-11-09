@@ -43,30 +43,70 @@ export const HeroAboutZone: React.FC<HeroAboutZoneProps> = ({ onOpenConsultation
     if (!container || !branch) return;
 
     const ctx = gsap.context(() => {
-      // Differential scroll parallax: the branch floats smoothly as content scrolls
-      gsap.fromTo(
-        branch,
-        {
-          yPercent: 0,
-          rotation: 0,
-          scale: 1,
-        },
-        {
-          yPercent: -14, // Subtle upward drift creating deep 3D background parallax
-          rotation: -1.8, // Gentle organic sway
-          scale: 1.05, // Subtle architectural expansion
-          ease: 'none',
-          scrollTrigger: {
-            trigger: container,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1.2,
+      const mm = gsap.matchMedia();
+
+      // Mobile Touch Devices (< 768px):
+      // More pronounced differential travel and responsive scrub for tactile feel
+      mm.add('(max-width: 767px)', () => {
+        gsap.fromTo(
+          branch,
+          {
+            yPercent: 0,
+            rotation: 0,
+            scale: 1,
           },
-        }
-      );
+          {
+            yPercent: -22, // Distinct vertical drift on mobile
+            rotation: -2.5,
+            scale: 1.08,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 0.6, // Rapid scrub for immediate touch response
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      });
+
+      // Desktop & Tablet (>= 768px):
+      // Smooth cinematic weighted glide
+      mm.add('(min-width: 768px)', () => {
+        gsap.fromTo(
+          branch,
+          {
+            yPercent: 0,
+            rotation: 0,
+            scale: 1,
+          },
+          {
+            yPercent: -16,
+            rotation: -2,
+            scale: 1.06,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 1.1,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      });
     }, containerRef);
 
-    return () => ctx.revert();
+    // Refresh ScrollTrigger once DOM layout settles
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 250);
+
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -83,7 +123,7 @@ export const HeroAboutZone: React.FC<HeroAboutZoneProps> = ({ onOpenConsultation
       */}
       <div
         aria-hidden="true"
-        className="sticky top-0 left-0 w-full h-screen pointer-events-none z-0 flex items-center justify-start overflow-hidden select-none"
+        className="sticky top-0 left-0 w-full h-[100svh] min-h-screen pointer-events-none z-0 flex items-center justify-start overflow-hidden select-none"
       >
         {/* Layer 1: GSAP ScrollTrigger Differential Parallax */}
         <div
@@ -95,7 +135,7 @@ export const HeroAboutZone: React.FC<HeroAboutZoneProps> = ({ onOpenConsultation
             style={{
               transform: `translate3d(${-mouseOffset.x * 0.6}px, ${-mouseOffset.y * 0.6}px, 0)`,
             }}
-            className="w-[125vw] max-w-[1900px] min-w-[1150px] -ml-[14vw] sm:-ml-[11vw] lg:-ml-[9vw] transition-transform duration-700 ease-out will-change-transform"
+            className="w-[140vw] sm:w-[125vw] max-w-[1900px] min-w-[950px] sm:min-w-[1150px] -ml-[160px] sm:-ml-[140px] md:-ml-[12vw] lg:-ml-[9vw] transition-transform duration-700 ease-out will-change-transform"
           >
             <img
               src={branchImg}
